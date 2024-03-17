@@ -29,11 +29,11 @@ const bottom: INotification[] = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen h-full flex items-center justify-center">
-      <div className="max-w-[730px] w-full rounded-[15px] px-[30px] bg-white pt-[33px]">
-        <div className="flex items-center justify-between mb-[31px]">
+    <main className="min-h-screen h-full flex items-center justify-center text-sm md:text-base">
+      <div className="max-w-[730px] w-full rounded-[15px] px-4 md:px-[30px] bg-white pt-6 md:pt-[33px]">
+        <div className="flex items-center justify-between mb-6 md:mb-[31px]">
           <div className="flex items-center gap-[11px]">
-            <h2 className="text-[#1C202B] text-2xl font-extrabold">Notification</h2>
+            <h2 className="text-[#1C202B] text-xl md:text-2xl font-extrabold">Notification</h2>
             <span className="font-extrabold h-[25px] w-[35px] flex items-center justify-center text-white bg-[#0A327B] rounded-md">3</span>
           </div>
           <p className="text-[#5E6778]">Mark all as read</p>
@@ -63,7 +63,7 @@ export default function Home() {
 
 function Unread({ unread, image, name, time, post, action, isClub, isProfile, isMessage }: INotification) {
   return (
-    <div className={clsx("py-[18px] px-5 rounded-lg flex items-start gap-5",
+    <div className={clsx("p-4 md:p-5 rounded-lg flex items-start gap-5",
       unread ? "bg-[#F7FAFD]" : ""
     )}>
       <Image
@@ -71,14 +71,14 @@ function Unread({ unread, image, name, time, post, action, isClub, isProfile, is
         alt="mark webber"
         height={90}
         width={90}
-        className="h-[45px] w-[45px]"
+        className="md:h-[45px] h-[39px] md:w-[45px] w-[39px]"
       />
       <div className="flex flex-col gap-[13px] w-full">
         <div>
           <div className="flex justify-between w-full">
             <div className="flex gap-[6px] items-center">
               <p>
-                <span className="text-[#1C202B] font-extrabold">{name}</span>&nbsp;&nbsp;<span className="text-[#5E6778]">{action}</span>&nbsp;&nbsp;<span className={clsx(" font-extrabold", post ? "" : "hidden", isClub ? "text-[#0A327B]" : "text-[#5E6778]")}>{post}</span>
+                <span className="text-[#1C202B] font-extrabold hover:text-[#0A327B] hover:cursor-pointer">{name}</span>&nbsp;&nbsp;<span className="text-[#5E6778]">{action}</span>&nbsp;&nbsp;<span className={clsx(" font-extrabold", post ? "" : "hidden", isClub ? "text-[#0A327B] hover:cursor-pointer" : "text-[#5E6778] hover:text-[#0A327B] hover:cursor-pointer")}>{post}</span>
               </p>
               <svg className={clsx("", unread ? "" : "hidden")} width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="4" cy="4" r="4" fill="#F65552" />
